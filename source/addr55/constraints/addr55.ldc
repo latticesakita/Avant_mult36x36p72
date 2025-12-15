@@ -1,0 +1,22 @@
+set device "LAV-AT-G30"
+set device_int "ap6a160c"
+set package "LFG676"
+set package_int "LFG676"
+set speed "1"
+set speed_int "1"
+set operation "Commercial"
+set family "LAV-AT"
+set architecture "ap6a00b"
+set partnumber "LAV-AT-G30-1LFG676C"
+set WRAPPER_INST "lscc_adder_inst"
+set D_WIDTH 55
+set SIGNED "on"
+set USE_CNUM 0
+set USE_CIN 0
+set USE_COUT 1
+set USE_OREG "off"
+set PIPELINES 0
+set FAMILY "LAV-AT"
+
+
+# Please refer to eval/constraint.pdc 

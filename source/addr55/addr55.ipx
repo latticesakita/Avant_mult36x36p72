@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="ap6a00b" date="2025 12 15 13:23:54" device="LAV-AT-G30" device_int="ap6a160c" display_module="Adder" display_vendor="latticesemi.com" family="LAV-AT" gen_platform="Radiant" gen_platform_version="2025.2.0.3.0" generator="ipgen" library="module" module="adder" name="addr55" operation="Commercial" package="LFG676" package_int="LFG676" partnumber="LAV-AT-G30-1LFG676C" source_format="Verilog" speed="1" speed_int="1" vendor="latticesemi.com" version="2.0.0">
+ <Package>
+  <File modified="2025 12 15 13:23:53" name="rtl/addr55_bb.v" type="black_box_verilog"/>
+  <File modified="2025 12 15 13:23:53" name="addr55.cfg" type="cfg"/>
+  <File modified="2025 12 15 13:23:53" name="misc/addr55_tmpl.v" type="template_verilog"/>
+  <File modified="2025 12 15 13:23:53" name="misc/addr55_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2025 12 15 13:23:53" name="rtl/addr55.v" type="top_level_verilog"/>
+  <File modified="2025 12 15 13:23:53" name="constraints/addr55.ldc" type="timing_constraints"/>
+  <File modified="2025 12 15 13:23:53" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2025 12 15 13:23:53" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2025 12 15 13:23:53" name="eval/dut_params.v" type="dependency_file"/>
+  <File modified="2025 12 15 13:23:53" name="eval/dut_inst.v" type="dependency_file"/>
+  <File modified="2025 12 15 13:23:53" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2025 12 15 13:23:53" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2025 10 17 20:21:42" name="testbench/tb_top.v" type="testbench_verilog"/>
+  <File modified="2025 12 15 04:23:54" name="eval/constraint.pdc" type="eval"/>
+  <File modified="2025 10 17 20:21:42" name="eval/create_constraint.py" type="eval"/>
+ </Package>
+</RadiantModule>
