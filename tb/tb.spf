@@ -1,8 +1,6 @@
 <RadiantSimulationProject language="1" name="tb" path=".." simType="QuestaSim" stage="0" version="2.0">
     <Source include="none" langstandard="Verilog 2001" path="../source/tb_mult36x36p72.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="../source/mult36x36p72.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="../source/addr38/rtl/addr38.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="../source/addr55/rtl/addr55.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="../source/mult36x36p72_cascaded.v" type="VERILOG" worklib="work"/>
     <SimLib value="pmi_work lav_atg"/>
     <GlbInc value=""/>
     <Macro value=""/>
