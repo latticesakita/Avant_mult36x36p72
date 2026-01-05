@@ -29,7 +29,12 @@ C[71:0] ─┴───────┐     │
 ```
 
 ## File Structure
-- `mult36x36p72.v` — main module
+- `project/mult36x36p72.rdf` — Lattice Radiant project file
+- `source/mult36x36p72_cascaded.v` — main module
+- `source/tb_mult36x36p72.v` — Test bench
+- `source/mult36x36p72.v` — Reference module, unused
+- `source/addr38` - adder IP block, unused
+- `source/addr55` - adder IP block, unused
 
 ## License
 This module incorporates content governed by the **Lattice Reference Design License Agreement**.
