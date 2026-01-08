@@ -3,7 +3,20 @@
 
 module tb_mult36x36p72;
 
+parameter REGINPUT	=	"REGISTERED_ONCE"; // REGISTERED_ONCE, REGISTERED_TWICE, BYPASSED 
+parameter REGPIPE	=	"BYPASSED"; // REGISTERED, BYPASSED
+parameter REGOUTPUT	=	"REGISTERED"; // REGISTERED, BYPASSED
+
 GSRA GSR_INST  (.GSR_N(1'b1));
+
+  wire [3:0] out_delayin = (REGINPUT  == "BYPASSED"        ) ? 4'd0 :
+                           (REGINPUT  == "REGISTERED_ONCE" ) ? 4'd1 :
+                           (REGINPUT  == "REGISTERED_TWICE") ? 4'd2 : 4'd0;
+  wire [3:0] out_delaypi = (REGPIPE   == "BYPASSED"        ) ? 4'd0 :
+                           (REGPIPE   == "REGISTERED"      ) ? 4'd1 : 4'd0;
+  wire [3:0] out_delayou = (REGOUTPUT == "BYPASSED"        ) ? 4'd0 :
+                           (REGOUTPUT == "REGISTERED"      ) ? 4'd1 : 4'd0;
+  wire [3:0] out_delay   = out_delayin + out_delaypi + out_delayou;
 
   reg clk = 0;
   reg [3:0] rst_cnt = 1;
@@ -20,16 +33,40 @@ GSRA GSR_INST  (.GSR_N(1'b1));
   wire [72:0] result;
   wire [71:0] result_m;
 
-  mult36x36p72 uut (
-    .A(A), 
-    .B(B), 
-    .C(C),
-    .result(result)
+  mult36x36p72 #(
+    .REGINPUTA	(REGINPUT ),
+    .REGINPUTB	(REGINPUT ),
+    .REGINPUTC	(REGINPUT ),
+    .REGPIPE	(REGPIPE  ),
+    .REGOUTPUT	(REGOUTPUT) 
+  )
+  uut (
+    .clk	(clk),
+    .resetn	(resetn),
+    .A		(A), 
+    .B		(B), 
+    .C		(C),
+    .result	(result)
   );
 
 assign result_m = A * B;
-wire [72:0] ref_result = {result_m[71],result_m[71:0]} + {C[71],C[71:0]};
+wire [72:0] ref_result;
+wire [72:0] ref_result0 = {result_m[71],result_m[71:0]} + {C[71],C[71:0]};
+reg [72:0] ref_result1;
+reg [72:0] ref_result2;
+reg [72:0] ref_result3;
+reg [72:0] ref_result4;
+assign ref_result = (out_delay == 4'd0) ? ref_result0 :
+                    (out_delay == 4'd1) ? ref_result1 :
+                    (out_delay == 4'd2) ? ref_result2 :
+                    (out_delay == 4'd3) ? ref_result3 : ref_result4 ;
 
+always @(posedge clk) begin
+	ref_result1 <= ref_result0;
+	ref_result2 <= ref_result1;
+	ref_result3 <= ref_result2;
+	ref_result4 <= ref_result3;
+end
 reg [23:0] idx;
 reg [31:0] randA;
 reg [31:0] randB;
